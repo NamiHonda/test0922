@@ -1,0 +1,56 @@
+@use "./asset";
+
+
+// -------------------------------------------------------------
+// project 設定
+// -------------------------------------------------------------
+.kv__img {
+  position: relative;
+}
+
+.kv__copy1,
+.kv__copy2,
+.kv__title,
+.kv__pkg {
+  position: absolute;
+  z-index: 2;
+  // opacity: 0;
+  will-change: opacity;
+
+  // .--loaded & {
+  //   opacity: 1;
+  //   transition: opacity 800ms asset.$easeOut;
+  // }
+}
+
+// -------------------------------------------------------------
+// mobile
+@include asset.mobile {
+}
+
+
+// -------------------------------------------------------------
+// desktop
+
+@include asset.desktop {
+
+  .kv__obj1 {
+    top: 0;
+    width: asset.desktop-min(390);
+  }
+
+  .kv__obj2 {
+    top: 0;
+    width: asset.desktop-min(410);
+  }
+
+  .kv__copy1 {
+    width: asset.desktop-min(368);
+    top: asset.desktop-min(124);
+  }
+
+}
+
+
+
+

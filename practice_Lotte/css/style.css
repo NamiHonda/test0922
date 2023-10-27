@@ -1,0 +1,42 @@
+img {
+  width: 100%;
+  height: auto;
+}
+
+.greenghana__obj {
+  position: absolute;
+}
+.greenghana__obj.--left {
+  left: 0;
+}
+.greenghana__obj.--right {
+  right: 0;
+}
+
+.kv__img {
+  position: relative;
+}
+
+.kv__copy1,
+.kv__copy2,
+.kv__title,
+.kv__pkg {
+  position: absolute;
+  z-index: 2;
+  will-change: opacity;
+}
+
+@media screen and (min-width: 768px) {
+  .kv__obj1 {
+    top: 0;
+    width: min(36.9318181818vw, 390px);
+  }
+  .kv__obj2 {
+    top: 0;
+    width: min(38.8257575758vw, 410px);
+  }
+  .kv__copy1 {
+    width: min(34.8484848485vw, 368px);
+    top: min(11.7424242424vw, 124px);
+  }
+}/*# sourceMappingURL=style.css.map */

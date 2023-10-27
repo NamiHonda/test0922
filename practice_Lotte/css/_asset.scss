@@ -1,0 +1,116 @@
+
+
+// setting 依存 function / mixin
+//
+// Compatible in latest Browser
+// Styleguide 2.4.0
+
+@use "sass:math";
+
+
+$mobile-width: 750;
+$desktop-width: 1056;
+
+
+$graceful-usage-threshold: 100 !default;
+$critical-usage-threshold: 100 !default;
+
+// Font
+$font-color: #000 !default;
+$font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
+  sans-serif !default;
+$font-size: 10 !default;
+$line-height: 1.5 !default;
+$default-em: 10px !default;
+
+// Various global styles
+$float: left !default;
+$box-sizing: border-box !default;
+
+// on or off
+$font-smoothing: off !default;
+$bg-color: #fff !default;
+
+// Media Queries
+// mobile width
+$mobile-width: 375 !default; // デザイン幅 375 or 750 or other
+$mobile-max-width: 767 !default; // レスポンシブ mobile max
+
+// desktop width
+$desktop-width: 1200 !default; // コンテンツ部分幅 max width
+
+// tablet width
+$tablet: false !default; // tablet用スタイルが必要な場合はtrueに
+$tablet-width: 980 !default; // タブレット max width
+// VW calc
+// --------------------
+@function mobile-vw($width, $viewport:$mobile-width) {
+  @return get-vw($width, $viewport);
+}
+
+@function desktop-vw($width, $viewport: $desktop-width) {
+  @return get-vw($width, $viewport);
+}
+
+// min(), max(), clamp()
+// --------------------
+// desktop min (最大値指定)
+// ex.
+// width: asset.desktop-min(500);
+// height: asset.desktop-min(300, 1260);
+// font-size: asset.desktop-min(20);
+@function desktop-min($value, $viewport: $desktop-width) {
+  @return min(#{math.div(100, $viewport) * $value}vw, #{$value}px);
+}
+
+// desktop max (最小値指定)
+// ex.
+// width: asset.desktop-max(500);
+// height: asset.desktop-max(300, 1260);
+// font-size: asset.desktop-max(20);
+@function desktop-max($value, $viewport: $desktop-width) {
+  @return max(#{math.div(100, $viewport) * $value}vw, #{$value}px);
+}
+
+
+@mixin mobile($wrapper: null) {
+  @if $wrapper == null {
+    @media only screen and (max-width: #{$mobile-max-width}px) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: #{$mobile-max-width}px) {
+      #{$wrapper} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin desktop($wrapper: null) {
+  @if $wrapper == null {
+    @if $tablet {
+      @media screen and (min-width: #{$tablet-width + 1}px) {
+        @content;
+      }
+    } @else {
+      @media screen and (min-width: #{$mobile-max-width + 1}px) {
+        @content;
+      }
+    }
+  } @else {
+    @if $tablet {
+      @media screen and (min-width: #{$tablet-width + 1}px) {
+        #{$wrapper} {
+          @content;
+        }
+      }
+    } @else {
+      @media screen and (min-width: #{$mobile-max-width + 1}px) {
+        #{$wrapper} {
+          @content;
+        }
+      }
+    }
+  }
+}
