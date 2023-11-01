@@ -1,6 +1,54 @@
+@use "./asset";
+
+//reset css
+body,
+  div,
+  dl,
+  dt,
+  dd,
+  ul,
+  ol,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  pre,
+  form,
+  fieldset,
+  input,
+  textarea,
+  p,
+  blockquote,
+  th,
+  td,
+  figure {
+    margin: 0;
+    padding: 0;
+  }
+
+
+.whole {
+  position: relative;
+  background: url("../img/bg_beige.webp") 0 0 repeat;
+}
+
 img {
   width: 100%;
   height: auto;
+}
+
+button {
+  @include asset.reset-button;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: asset.desktop-min(1056);
+  position: relative;
 }
 
 .greenghana__obj {

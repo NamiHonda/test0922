@@ -23,6 +23,12 @@
   // }
 }
 
+.kv__scroll {
+  position: absolute;
+  z-index: 2;
+}
+
+
 // -------------------------------------------------------------
 // mobile
 @include asset.mobile {
@@ -33,6 +39,28 @@
 // desktop
 
 @include asset.desktop {
+
+  .kv__pkg {
+    top: asset.desktop-min(513);
+    right: asset.desktop-min(5);
+    width: asset.desktop-min(394);
+    
+  }
+  
+  .kv__lnav {
+    position: absolute;
+    top: asset.desktop-min(373);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: asset.desktop-min(200);
+  }
+  
+  .kv__scroll {
+    right: 0;
+    top: asset.desktop-min(626);
+    width: asset.desktop-min(13);
+  }
 
   .kv__obj1 {
     top: 0;
@@ -49,6 +77,21 @@
     top: asset.desktop-min(124);
   }
 
+  .kv__copy2 {
+    width: asset.desktop-min(370);
+    top: asset.desktop-min(498);
+    left: 0;
+  }
+
+  .kv__img {
+    width: asset.desktop-min(1366);
+    margin-left: asset.desktop-max(-155);
+    margin-right: asset.desktop-max(-155);
+  }
+  .kv__title {
+    top: asset.desktop-min(549);
+    width: asset.desktop-min(330);
+  }
 }
 
 

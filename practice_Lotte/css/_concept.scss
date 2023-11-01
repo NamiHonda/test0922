@@ -1,0 +1,142 @@
+@use "./asset";
+
+
+.concept {
+  position: relative;
+
+}
+
+
+// -------------------------------------------------------------
+// desktop
+
+@include asset.desktop {
+  
+  .concept {
+    .container {
+      padding-top: asset.desktop-min(120);
+      padding-bottom: asset.desktop-min(235);
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      background-image: url(../img/concept_bg_dt.webp);
+      width: 100%;
+      height:asset.desktop-min(116);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      bottom: 0;
+      left: 0;
+
+    }
+
+    .concept__obj1 {
+      top: asset.desktop-min(232);
+      width: asset.desktop-min(115);
+    }
+
+    .concept__obj2 {
+      top: asset.desktop-min(382);
+      width: asset.desktop-min(104);
+    }
+
+    .concept__title {
+      margin-left: auto;
+      margin-right: auto;
+      width: asset.desktop-min(345);
+    }
+
+    .concept__lead {
+      margin-top: asset.desktop-min(60);
+      text-align: center;
+      font-size: asset.desktop-min(18);
+      line-height: asset.lh(44, 18);
+    }
+
+    .concept__item__pkg {
+      position: absolute;
+    }
+
+    .concept__item1__pkg {
+      top: asset.desktop-min(152);
+      left: asset.desktop-max(-20);
+      width: asset.desktop-min(421);
+    }
+
+    .concept__item2__pkg {
+      top: asset.desktop-min(152);
+      right: asset.desktop-max(-20);
+      width: asset.desktop-min(421);
+    }
+    .concept__item__text {
+      position: absolute;
+    }
+
+    .concept__item1__text {
+      top: asset.desktop-min(479);
+      width: asset.desktop-min(193);
+    }
+
+    .concept__item2__text {
+      top: asset.desktop-min(304);
+      width: asset.desktop-min(215);
+      right: 0;
+    }
+
+    .concept__logo {
+      width: asset.desktop-min(300);
+      margin-top: asset.desktop-min(60);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .concept__item__link {
+      position: absolute;
+      display: flex;
+      color: #371606;
+      text-decoration: none;
+      .arw {
+        width: 5px;
+        height: 5px;
+      }
+    }
+    .concept__item1__link {
+      left: 0;
+    }
+
+    .concept__item2__link {
+      right: 0;
+    }
+  }
+  
+  .concept__obj {
+    position: absolute;
+    z-index: 2;
+    &.--choco1 {
+      top: asset.desktop-min(721);
+      right: asset.desktop-min(198);
+      width: asset.desktop-min(91);
+    }
+
+    &.--choco2 {
+      top: asset.desktop-min(720);
+      right: asset.desktop-min(71);
+      width: asset.desktop-min(127);
+    }
+
+    &.--choco3 {
+      top: asset.desktop-min(544);
+      left: asset.desktop-min(230);
+      width: asset.desktop-min(78);
+    }
+
+    &.--choco4 {
+      top: asset.desktop-min(840);
+      left: asset.desktop-min(95);
+      width: asset.desktop-min(86);
+    }
+  }
+}

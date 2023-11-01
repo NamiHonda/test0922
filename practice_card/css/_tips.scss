@@ -1,0 +1,986 @@
+// -------------------------------------------------------------
+// project main css
+// -------------------------------------------------------------
+
+// import library setting + mixin + function
+@use "./asset";
+
+// -------------------------------------------------------------
+// project 設定
+// -------------------------------------------------------------
+
+.gogofesta {
+  .tips {
+    overflow: hidden;
+  }
+
+  .tips__title {
+    color: asset.$color-e60012;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .tips__tabs {
+    display: flex;
+    justify-content: center;
+  }
+
+  .tips__tabs__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: asset.$color-f4f4f4;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(
+        -50%,
+        95%
+      ); // ウィンドウサイズによって隙間ができるため100％ではなく95％にしている
+
+      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .text {
+      font-size: 0;
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+
+      g {
+        fill: asset.$color-e60012;
+      }
+    }
+
+    .label {
+      position: absolute;
+    }
+
+    &.is-active {
+      background-color: asset.$color-e60012;
+
+      .text {
+        g {
+          fill: asset.$color-fff;
+        }
+      }
+
+      &::before {
+        background-color: asset.$color-e60012;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+
+      .text {
+        g {
+          fill: asset.$color-c6c6c6;
+        }
+      }
+
+      &::before {
+        background-color: asset.$color-f4f4f4;
+      }
+
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:not(:disabled) {
+        cursor: pointer;
+        transition: background-color 240ms asset.$easeOut;
+        will-change: background-color;
+
+        .text {
+          g {
+            transition: fill 240ms asset.$easeOut;
+            will-change: fill;
+          }
+        }
+
+        &:hover {
+          background-color: asset.$color-e60012;
+
+          .text {
+            g {
+              fill: asset.$color-fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tips__stage__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .term {
+      font-weight: 900;
+    }
+  }
+
+  .tips__stage__body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tips__stage__card {
+    transform-style: preserve-3d;
+    transition: all 560ms asset.$easeInOutQuart;
+
+    &.open {
+      transform: rotateY(-180deg);
+
+      .front {
+        transform: rotateY(0deg) translateZ(0);
+      }
+
+      .card__close__btn {
+        transition-delay: 0ms;
+      }
+
+      .back {
+        .label,
+        .title,
+        .img,
+        .text,
+        .note {
+          opacity: 1;
+          transition-duration: 240ms;
+          transition-delay: 520ms;
+        }
+      }
+    }
+
+    @media (any-hover: hover) {
+      cursor: pointer;
+
+      &.open {
+        cursor: default;
+      }
+
+      &:hover {
+        &:not(.open) {
+          transform: rotateY(45deg);
+          transition-duration: 560ms;
+          transition-timing-function: asset.$easeInOutQuart;
+        }
+      }
+    }
+
+    .front {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: asset.$color-e60012;
+      color: asset.$color-fff;
+      transition: all 560ms asset.$easeInOutQuart;
+
+      .label {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+
+      .title {
+        font-weight: 900;
+      }
+
+      .text {
+        position: absolute;
+        border-bottom-style: solid;
+        border-bottom-color: asset.$color-fff;
+      }
+    }
+
+    .back {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      transition: all 560ms asset.$easeInOutQuart;
+
+      .back__inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: asset.$color-fff;
+        border-style: solid;
+        border-color: asset.$color-e60012;
+        transition: all 560ms asset.$easeInOutQuart;
+        overflow: hidden;
+      }
+
+      .label {
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        transition: opacity 120ms asset.$linear;
+        will-change: opacity;
+      }
+
+      .title {
+        color: asset.$color-e60012;
+        font-weight: 900;
+        opacity: 0;
+        transition: opacity 120ms asset.$linear;
+        will-change: opacity;
+      }
+
+      .img {
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        transition: opacity 120ms asset.$linear;
+        will-change: opacity;
+      }
+
+      .text {
+        opacity: 0;
+        transition: opacity 120ms asset.$linear;
+        will-change: opacity;
+      }
+
+      .note {
+        padding-left: 1.3em;
+        text-indent: -1.3em;
+        opacity: 0;
+        transition: opacity 120ms asset.$linear;
+        will-change: opacity;
+      }
+
+      .t--center {
+        text-align: center;
+      }
+    }
+
+    .card__close__btn {
+      position: absolute;
+      top: 0;
+
+      // left: 0;
+      right: 0;
+      z-index: 2;
+      overflow: hidden;
+      transition: all 0ms asset.$easeInOutQuart 560ms;
+
+      // transform: rotateY(-180deg) translateZ(0);
+
+      @media (any-hover: hover) {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// -------------------------------------------------------------
+// mobile
+@include asset.mobile(".gogofesta") {
+  .tips {
+    .container {
+      padding: asset.mobile-vw(80) asset.mobile-vw(20) asset.mobile-vw(60);
+    }
+  }
+
+  .tips__title {
+    font-size: asset.mobile-vw(24);
+  }
+
+  .tips__contents {
+    margin-top: asset.mobile-vw(30);
+    margin-bottom: asset.mobile-vw(60);
+  }
+
+  .tips__tabs {
+    column-gap: asset.mobile-vw(8);
+  }
+
+  .tips__tabs__item {
+    width: asset.mobile-vw(60);
+    height: asset.mobile-vw(60);
+    border-radius: 50%;
+
+    &::before {
+      width: asset.mobile-vw(12);
+      height: asset.mobile-vw(10);
+    }
+
+    .label {
+      width: asset.mobile-vw(56);
+      top: asset.mobile-vw(-12);
+      left: asset.mobile-vw(5);
+    }
+
+    .text {
+      width: asset.mobile-vw(31);
+    }
+
+    &.--5 {
+      .text {
+        width: asset.mobile-vw(35);
+      }
+    }
+  }
+
+  .tips__panels {
+    margin-top: asset.mobile-vw(15);
+  }
+
+  .tips__stage__header {
+    row-gap: asset.mobile-vw(10);
+
+    .title {
+      width: asset.mobile-vw(109);
+    }
+
+    .term {
+      font-size: asset.mobile-vw(14);
+    }
+
+    .num {
+      font-size: asset.mobile-vw(20);
+    }
+  }
+
+  .tips__stage__body {
+    column-gap: asset.mobile-vw(15);
+    row-gap: asset.mobile-vw(15);
+    margin-top: asset.mobile-vw(20);
+
+    // margin-left: asset.mobile-vw(-10);
+    // margin-right: asset.mobile-vw(-10);
+  }
+
+  .tips__stage__card {
+    width: asset.mobile-vw(150);
+    height: asset.mobile-vw(230);
+    border-radius: asset.mobile-vw(20);
+    box-shadow: 0 0 asset.mobile-vw(10) rgb(0 0 0 / 30%);
+
+    &.open {
+      width: asset.mobile-vw(303);
+      height: asset.mobile-vw(510);
+      border-radius: asset.mobile-vw(30);
+
+      .front {
+        border-radius: asset.mobile-vw(30);
+      }
+
+      .back {
+        transform: rotateY(180deg) translateZ(asset.mobile-vw(1));
+
+        .back__inner {
+          border-radius: asset.mobile-vw(30);
+        }
+      }
+
+      // .card__close__btn {
+      //   border-radius: 0 asset.mobile-vw(30);
+      // }
+    }
+
+    .front {
+      border-radius: asset.mobile-vw(20);
+      transform: rotateY(0deg) translateZ(asset.mobile-vw(2));
+
+      .label {
+        top: asset.mobile-vw(21);
+        width: asset.mobile-vw(48);
+      }
+
+      .title {
+        padding-left: asset.mobile-vw(15);
+        padding-right: asset.mobile-vw(15);
+        font-size: asset.mobile-vw(13);
+        line-height: asset.lh(20.8, 13);
+      }
+
+      .text {
+        right: asset.mobile-vw(17);
+        bottom: asset.mobile-vw(17);
+        border-bottom-width: asset.mobile-vw(2);
+        font-size: asset.mobile-vw(12);
+      }
+    }
+
+    .back {
+      transform: rotateY(180deg);
+
+      .back__inner {
+        border-radius: asset.mobile-vw(20);
+        border-width: asset.mobile-vw(6);
+        padding: asset.mobile-vw(27);
+      }
+
+      .label {
+        width: asset.mobile-vw(48);
+        margin-bottom: asset.mobile-vw(20);
+      }
+
+      .title {
+        font-size: asset.mobile-vw(16);
+        line-height: asset.lh(22.4, 16);
+      }
+
+      .text {
+        margin-top: asset.mobile-vw(20);
+        font-size: asset.mobile-vw(12);
+        line-height: asset.lh(16.8, 12);
+      }
+
+      .img {
+        margin-top: asset.mobile-vw(15);
+      }
+
+      .note {
+        margin-top: asset.mobile-vw(15);
+        font-size: asset.mobile-vw(11);
+        line-height: asset.lh(16, 11);
+      }
+    }
+
+    .card__close__btn {
+      width: asset.mobile-vw(58);
+
+      // border-radius: asset.mobile-vw(20) 0;
+      // transform: rotateY(-180deg) translateZ(asset.mobile-vw(10));
+    }
+
+    &.--1 {
+      .back {
+        .img {
+          width: asset.mobile-vw(144);
+        }
+      }
+    }
+
+    &.--2 {
+      .back {
+        .img {
+          width: asset.mobile-vw(170);
+        }
+      }
+    }
+
+    &.--3 {
+      .back {
+        .img {
+          width: asset.mobile-vw(236);
+        }
+      }
+    }
+
+    &.--4 {
+      .back {
+        .img {
+          width: asset.mobile-vw(144);
+        }
+      }
+    }
+
+    &.--5 {
+      .back {
+        .img {
+          width: asset.mobile-vw(112);
+        }
+      }
+    }
+  }
+
+  // GO!GO!ミッション　2ndステージカード更新対応
+  .second__stage {
+    .tips__stage__card {
+      &.--1 {
+        .back {
+          .img {
+            width: asset.mobile-vw(236);
+          }
+        }
+      }
+
+      &.--2 {
+        .back {
+          .img {
+            width: asset.mobile-vw(151);
+          }
+        }
+      }
+
+      &.--3 {
+        .back {
+          .img {
+            width: asset.mobile-vw(230);
+          }
+        }
+      }
+
+      &.--4 {
+        .title-mb {
+          font-size: asset.mobile-vw(12);
+          letter-spacing: 0.02em;
+        }
+
+        .back {
+          .img {
+            width: asset.mobile-vw(80);
+          }
+        }
+
+        .text {
+          margin-top: asset.mobile-vw(10);
+          line-height: asset.lh(16.8, 12);
+        }
+
+        .explain {
+          font-size: asset.mobile-vw(10);
+          text-align: center;
+        }
+      }
+
+      &.--5 {
+        .img {
+          margin-top: asset.mobile-vw(6);
+        }
+
+        .text {
+          margin-top: asset.mobile-vw(10);
+        }
+      }
+    }
+
+    .title-h5 {
+      margin-top: asset.mobile-vw(15);
+      font-size: asset.mobile-vw(12);
+      color: asset.$color-e60012;
+    }
+
+    .title-sub {
+      margin-top: asset.mobile-vw(10);
+      font-size: asset.mobile-vw(12);
+      font-weight: 900;
+    }
+
+    .box {
+      display: flex;
+      justify-content: space-between;
+
+      .text {
+        margin-top: asset.desktop-min(10);
+        font-size: asset.mobile-vw(11);
+      }
+
+      &.--1 {
+        align-items: flex-start;
+
+        .text {
+          width: asset.mobile-vw(169);
+        }
+
+        .img {
+          width: asset.mobile-vw(60);
+        }
+      }
+
+      &.--2 {
+        .text {
+          width: asset.mobile-vw(132);
+        }
+
+        .img {
+          width: asset.mobile-vw(90);
+        }
+      }
+    }
+
+    .notice {
+      margin-top: asset.desktop-min(36);
+      font-size: asset.mobile-vw(12);
+      text-align: center;
+    }
+  }
+}
+
+// -------------------------------------------------------------
+// desktop
+@include asset.desktop(".gogofesta") {
+  .tips {
+    .container {
+      padding-top: asset.desktop-min(100);
+      padding-bottom: asset.desktop-min(120);
+    }
+  }
+
+  .tips__title {
+    font-size: asset.desktop-min(40);
+  }
+
+  .tips__contents {
+    margin-top: asset.desktop-min(60);
+    margin-bottom: asset.desktop-min(100);
+  }
+
+  .tips__tabs {
+    column-gap: asset.desktop-min(12);
+  }
+
+  .tips__tabs__item {
+    width: asset.desktop-min(190);
+    height: asset.desktop-min(100);
+    border-radius: asset.desktop-min(50);
+
+    &::before {
+      width: asset.desktop-min(19);
+      height: asset.desktop-min(16);
+    }
+
+    .label {
+      width: asset.desktop-min(104);
+      top: asset.desktop-max(-21);
+      left: asset.desktop-min(44);
+    }
+
+    &.--1 {
+      .text {
+        width: asset.desktop-min(84);
+      }
+    }
+
+    &.--2 {
+      .text {
+        width: asset.desktop-min(97);
+      }
+    }
+
+    &.--3 {
+      .text {
+        width: asset.desktop-min(92);
+      }
+    }
+
+    &.--4 {
+      .text {
+        width: asset.desktop-min(92);
+      }
+    }
+
+    &.--5 {
+      .text {
+        width: asset.desktop-min(115);
+      }
+    }
+  }
+
+  .tips__panels {
+    margin-top: asset.desktop-min(35);
+  }
+
+  .tips__stage__header {
+    row-gap: asset.desktop-min(5);
+
+    .title {
+      width: asset.desktop-min(182);
+    }
+
+    .term {
+      font-size: asset.desktop-min(18);
+    }
+
+    .num {
+      font-size: asset.desktop-min(22);
+    }
+  }
+
+  .tips__stage__body {
+    column-gap: asset.desktop-min(24);
+    row-gap: asset.desktop-min(24);
+    margin-top: asset.desktop-min(30);
+
+    // margin-left: asset.desktop-max(-10);
+    // margin-right: asset.desktop-max(-10);
+  }
+
+  .tips__stage__card {
+    width: asset.desktop-min(256);
+    height: asset.desktop-min(390);
+    border-radius: asset.desktop-min(26);
+    box-shadow: 0 0 asset.desktop-min(20) rgb(0 0 0 / 30%);
+
+    &.open {
+      width: asset.desktop-min(440);
+      height: asset.desktop-min(670);
+      border-radius: asset.desktop-min(40);
+
+      .front {
+        border-radius: asset.desktop-min(40);
+      }
+
+      .back {
+        .back__inner {
+          border-radius: asset.desktop-min(40);
+        }
+      }
+
+      // .card__close__btn {
+      //   border-radius: 0 asset.desktop-min(40);
+      // }
+    }
+
+    .front {
+      border-radius: asset.desktop-min(26);
+      transform: rotateY(0deg) translateZ(asset.desktop-min(0.1));
+
+      .label {
+        top: asset.desktop-min(44);
+        width: asset.desktop-min(60);
+      }
+
+      .title {
+        padding-left: asset.desktop-min(26);
+        padding-right: asset.desktop-min(26);
+        font-size: asset.desktop-min(18);
+        line-height: asset.lh(28.8, 18);
+      }
+
+      .text {
+        right: asset.desktop-min(30);
+        bottom: asset.desktop-min(24);
+        border-bottom-width: asset.desktop-min(2);
+        font-size: asset.desktop-min(14);
+      }
+    }
+
+    .back {
+      transform: rotateY(180deg);
+
+      .back__inner {
+        border-radius: asset.desktop-min(26);
+        border-width: asset.desktop-min(10);
+        padding: asset.desktop-min(34);
+      }
+
+      .label {
+        width: asset.desktop-min(62);
+        margin-bottom: asset.desktop-min(30);
+      }
+
+      .title {
+        font-size: asset.desktop-min(18);
+        line-height: asset.lh(28.8, 18);
+      }
+
+      .text {
+        margin-top: asset.desktop-min(18);
+        font-size: asset.desktop-min(16);
+        line-height: asset.lh(22.4, 16);
+      }
+
+      .img {
+        margin-top: asset.desktop-min(18);
+      }
+
+      .note {
+        margin-top: asset.desktop-min(18);
+        font-size: asset.desktop-min(12);
+        line-height: asset.lh(18, 12);
+      }
+    }
+
+    // .card__close__btn {
+    //   border-radius: asset.desktop-min(26) 0;
+    // }
+  }
+
+  .first__stage {
+    .tips__stage__card {
+      &.--1 {
+        .back {
+          .img {
+            width: asset.desktop-min(239);
+          }
+        }
+      }
+
+      &.--2 {
+        .back {
+          .img {
+            width: asset.desktop-min(315);
+          }
+        }
+      }
+
+      &.--3 {
+        .back {
+          .img {
+            width: asset.desktop-min(344);
+          }
+        }
+      }
+
+      &.--4 {
+        .back {
+          .img {
+            width: asset.desktop-min(254);
+          }
+        }
+      }
+
+      &.--5 {
+        .back {
+          .img {
+            width: asset.desktop-min(220);
+          }
+        }
+      }
+    }
+  }
+
+  .second__stage {
+    .tips__stage__header {
+      .title {
+        width: asset.desktop-min(197);
+      }
+    }
+
+    .tips__stage__card {
+      .text {
+        letter-spacing: 0.1em;
+      }
+
+      &.--1 {
+        .back {
+          .img {
+            width: asset.desktop-min(315);
+            margin-top: asset.desktop-min(50);
+          }
+        }
+      }
+
+      &.--2 {
+        .back {
+          .img {
+            width: asset.desktop-min(289);
+          }
+        }
+      }
+
+      &.--3 {
+        .back {
+          .img {
+            width: asset.desktop-min(344);
+          }
+        }
+      }
+
+      &.--4 {
+        .back {
+          .img {
+            width: asset.desktop-min(96);
+          }
+        }
+
+        .explain {
+          margin-top: asset.desktop-min(5);
+          font-size: asset.desktop-min(12);
+          text-align: center;
+        }
+      }
+    }
+
+    .title-h5 {
+      margin-top: asset.desktop-min(20);
+      font-size: asset.desktop-min(16);
+      color: asset.$color-e60012;
+    }
+
+    .title-sub {
+      margin-top: asset.desktop-min(28);
+      font-size: asset.desktop-min(16);
+      font-weight: 900;
+    }
+
+    .box {
+      display: flex;
+      justify-content: space-between;
+
+      .text {
+        margin-top: asset.desktop-min(5);
+        font-size: asset.desktop-min(14);
+      }
+
+      &.--1 {
+        align-items: flex-end;
+
+        .text {
+          width: asset.desktop-min(246);
+          letter-spacing: 0.05em;
+        }
+
+        .img {
+          width: asset.desktop-min(79);
+        }
+      }
+
+      &.--2 {
+        .text {
+          width: asset.desktop-min(209);
+        }
+
+        .img {
+          width: asset.desktop-min(121);
+        }
+      }
+    }
+
+    .notice {
+      margin-top: asset.desktop-min(36);
+      font-size: asset.desktop-min(14);
+      text-align: center;
+    }
+  }
+}
+
+
+// テスト
+.tips__stage__card {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.front {
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+
+}

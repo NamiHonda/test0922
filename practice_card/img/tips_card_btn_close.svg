@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76" height="76" viewBox="0 0 76 76">
+  <g id="tips_card_btn_close" transform="translate(-870 -3373)">
+    <path id="長方形_306" data-name="長方形 306" d="M0,0H36A40,40,0,0,1,76,40V76a0,0,0,0,1,0,0H40A40,40,0,0,1,0,36V0A0,0,0,0,1,0,0Z" transform="translate(870 3373)" fill="#e60012"/>
+    <g id="グループ_847" data-name="グループ 847" transform="translate(-8.5 9.5)">
+      <line id="線_31" data-name="線 31" x1="15" y2="15" transform="translate(909.5 3394.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+      <line id="線_32" data-name="線 32" x2="15" y2="15" transform="translate(909.5 3394.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

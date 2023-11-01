@@ -1,0 +1,28 @@
+<svg id="howto_bg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_283" data-name="長方形 283" width="120" height="120" fill="#fff5f5"/>
+    </clipPath>
+  </defs>
+  <rect id="長方形_282" data-name="長方形 282" width="120" height="120" fill="#fff5f5"/>
+  <g id="マスクグループ_23" data-name="マスクグループ 23" clip-path="url(#clip-path)">
+    <g id="グループ_684" data-name="グループ 684" opacity="0.396">
+      <g id="楕円形_109" data-name="楕円形 109" transform="translate(0 15)" fill="none" stroke="#e60012" stroke-width="4" opacity="0.06">
+        <circle cx="15" cy="15" r="15" stroke="none"/>
+        <circle cx="15" cy="15" r="13" fill="none"/>
+      </g>
+      <g id="楕円形_111" data-name="楕円形 111" transform="translate(0 75)" fill="none" stroke="#e60012" stroke-width="4" opacity="0.06">
+        <circle cx="15" cy="15" r="15" stroke="none"/>
+        <circle cx="15" cy="15" r="13" fill="none"/>
+      </g>
+      <g id="楕円形_110" data-name="楕円形 110" transform="translate(59 15)" fill="none" stroke="#e60012" stroke-width="4" opacity="0.06">
+        <circle cx="15" cy="15" r="15" stroke="none"/>
+        <circle cx="15" cy="15" r="13" fill="none"/>
+      </g>
+      <g id="楕円形_112" data-name="楕円形 112" transform="translate(59 75)" fill="none" stroke="#e60012" stroke-width="4" opacity="0.06">
+        <circle cx="15" cy="15" r="15" stroke="none"/>
+        <circle cx="15" cy="15" r="13" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

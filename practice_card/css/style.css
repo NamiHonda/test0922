@@ -1,0 +1,668 @@
+.gogofesta .tips {
+  overflow: hidden;
+}
+.gogofesta .tips__title {
+  color: #e60012;
+  font-weight: 900;
+  text-align: center;
+}
+.gogofesta .tips__tabs {
+  display: flex;
+  justify-content: center;
+}
+.gogofesta .tips__tabs__item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+}
+.gogofesta .tips__tabs__item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 95%);
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+          clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  opacity: 0;
+  visibility: hidden;
+}
+.gogofesta .tips__tabs__item .text {
+  font-size: 0;
+}
+.gogofesta .tips__tabs__item .text svg {
+  width: 100%;
+  height: auto;
+}
+.gogofesta .tips__tabs__item .text g {
+  fill: #e60012;
+}
+.gogofesta .tips__tabs__item .label {
+  position: absolute;
+}
+.gogofesta .tips__tabs__item.is-active {
+  background-color: #e60012;
+}
+.gogofesta .tips__tabs__item.is-active .text g {
+  fill: #fff;
+}
+.gogofesta .tips__tabs__item.is-active::before {
+  background-color: #e60012;
+  opacity: 1;
+  visibility: visible;
+}
+.gogofesta .tips__tabs__item:disabled {
+  cursor: default;
+}
+.gogofesta .tips__tabs__item:disabled .text g {
+  fill: #c6c6c6;
+}
+.gogofesta .tips__tabs__item:disabled::before {
+  background-color: #f4f4f4;
+}
+.gogofesta .tips__tabs__item:disabled::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media (any-hover: hover) {
+  .gogofesta .tips__tabs__item:not(:disabled) {
+    cursor: pointer;
+    transition: background-color 240ms cubic-bezier(0, 0, 0.58, 1);
+    will-change: background-color;
+  }
+  .gogofesta .tips__tabs__item:not(:disabled) .text g {
+    transition: fill 240ms cubic-bezier(0, 0, 0.58, 1);
+    will-change: fill;
+  }
+  .gogofesta .tips__tabs__item:not(:disabled):hover {
+    background-color: #e60012;
+  }
+  .gogofesta .tips__tabs__item:not(:disabled):hover .text g {
+    fill: #fff;
+  }
+}
+.gogofesta .tips__stage__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gogofesta .tips__stage__header .term {
+  font-weight: 900;
+}
+.gogofesta .tips__stage__body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.gogofesta .tips__stage__card {
+  transform-style: preserve-3d;
+  transition: all 560ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.gogofesta .tips__stage__card.open {
+  transform: rotateY(-180deg);
+}
+.gogofesta .tips__stage__card.open .front {
+  transform: rotateY(0deg) translateZ(0);
+}
+.gogofesta .tips__stage__card.open .card__close__btn {
+  transition-delay: 0ms;
+}
+.gogofesta .tips__stage__card.open .back .label,
+.gogofesta .tips__stage__card.open .back .title,
+.gogofesta .tips__stage__card.open .back .img,
+.gogofesta .tips__stage__card.open .back .text,
+.gogofesta .tips__stage__card.open .back .note {
+  opacity: 1;
+  transition-duration: 240ms;
+  transition-delay: 520ms;
+}
+@media (any-hover: hover) {
+  .gogofesta .tips__stage__card {
+    cursor: pointer;
+  }
+  .gogofesta .tips__stage__card.open {
+    cursor: default;
+  }
+  .gogofesta .tips__stage__card:hover:not(.open) {
+    transform: rotateY(45deg);
+    transition-duration: 560ms;
+    transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+}
+.gogofesta .tips__stage__card .front {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e60012;
+  color: #fff;
+  transition: all 560ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.gogofesta .tips__stage__card .front .label {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.gogofesta .tips__stage__card .front .title {
+  font-weight: 900;
+}
+.gogofesta .tips__stage__card .front .text {
+  position: absolute;
+  border-bottom-style: solid;
+  border-bottom-color: #fff;
+}
+.gogofesta .tips__stage__card .back {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transition: all 560ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.gogofesta .tips__stage__card .back .back__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-style: solid;
+  border-color: #e60012;
+  transition: all 560ms cubic-bezier(0.77, 0, 0.175, 1);
+  overflow: hidden;
+}
+.gogofesta .tips__stage__card .back .label {
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transition: opacity 120ms cubic-bezier(0, 0, 1, 1);
+  will-change: opacity;
+}
+.gogofesta .tips__stage__card .back .title {
+  color: #e60012;
+  font-weight: 900;
+  opacity: 0;
+  transition: opacity 120ms cubic-bezier(0, 0, 1, 1);
+  will-change: opacity;
+}
+.gogofesta .tips__stage__card .back .img {
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transition: opacity 120ms cubic-bezier(0, 0, 1, 1);
+  will-change: opacity;
+}
+.gogofesta .tips__stage__card .back .text {
+  opacity: 0;
+  transition: opacity 120ms cubic-bezier(0, 0, 1, 1);
+  will-change: opacity;
+}
+.gogofesta .tips__stage__card .back .note {
+  padding-left: 1.3em;
+  text-indent: -1.3em;
+  opacity: 0;
+  transition: opacity 120ms cubic-bezier(0, 0, 1, 1);
+  will-change: opacity;
+}
+.gogofesta .tips__stage__card .back .t--center {
+  text-align: center;
+}
+.gogofesta .tips__stage__card .card__close__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  overflow: hidden;
+  transition: all 0ms cubic-bezier(0.77, 0, 0.175, 1) 560ms;
+}
+@media (any-hover: hover) {
+  .gogofesta .tips__stage__card .card__close__btn {
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .gogofesta .tips .container {
+    padding: get-vw(80, 750) get-vw(20, 750) get-vw(60, 750);
+  }
+  .gogofesta .tips__title {
+    font-size: get-vw(24, 750);
+  }
+  .gogofesta .tips__contents {
+    margin-top: get-vw(30, 750);
+    margin-bottom: get-vw(60, 750);
+  }
+  .gogofesta .tips__tabs {
+    -moz-column-gap: get-vw(8, 750);
+         column-gap: get-vw(8, 750);
+  }
+  .gogofesta .tips__tabs__item {
+    width: get-vw(60, 750);
+    height: get-vw(60, 750);
+    border-radius: 50%;
+  }
+  .gogofesta .tips__tabs__item::before {
+    width: get-vw(12, 750);
+    height: get-vw(10, 750);
+  }
+  .gogofesta .tips__tabs__item .label {
+    width: get-vw(56, 750);
+    top: get-vw(-12, 750);
+    left: get-vw(5, 750);
+  }
+  .gogofesta .tips__tabs__item .text {
+    width: get-vw(31, 750);
+  }
+  .gogofesta .tips__tabs__item.--5 .text {
+    width: get-vw(35, 750);
+  }
+  .gogofesta .tips__panels {
+    margin-top: get-vw(15, 750);
+  }
+  .gogofesta .tips__stage__header {
+    row-gap: get-vw(10, 750);
+  }
+  .gogofesta .tips__stage__header .title {
+    width: get-vw(109, 750);
+  }
+  .gogofesta .tips__stage__header .term {
+    font-size: get-vw(14, 750);
+  }
+  .gogofesta .tips__stage__header .num {
+    font-size: get-vw(20, 750);
+  }
+  .gogofesta .tips__stage__body {
+    -moz-column-gap: get-vw(15, 750);
+         column-gap: get-vw(15, 750);
+    row-gap: get-vw(15, 750);
+    margin-top: get-vw(20, 750);
+  }
+  .gogofesta .tips__stage__card {
+    width: get-vw(150, 750);
+    height: get-vw(230, 750);
+    border-radius: get-vw(20, 750);
+    box-shadow: 0 0 get-vw(10, 750) rgba(0, 0, 0, 0.3);
+  }
+  .gogofesta .tips__stage__card.open {
+    width: get-vw(303, 750);
+    height: get-vw(510, 750);
+    border-radius: get-vw(30, 750);
+  }
+  .gogofesta .tips__stage__card.open .front {
+    border-radius: get-vw(30, 750);
+  }
+  .gogofesta .tips__stage__card.open .back {
+    transform: rotateY(180deg) translateZ(get-vw(1, 750));
+  }
+  .gogofesta .tips__stage__card.open .back .back__inner {
+    border-radius: get-vw(30, 750);
+  }
+  .gogofesta .tips__stage__card .front {
+    border-radius: get-vw(20, 750);
+    transform: rotateY(0deg) translateZ(get-vw(2, 750));
+  }
+  .gogofesta .tips__stage__card .front .label {
+    top: get-vw(21, 750);
+    width: get-vw(48, 750);
+  }
+  .gogofesta .tips__stage__card .front .title {
+    padding-left: get-vw(15, 750);
+    padding-right: get-vw(15, 750);
+    font-size: get-vw(13, 750);
+    line-height: 1.6;
+  }
+  .gogofesta .tips__stage__card .front .text {
+    right: get-vw(17, 750);
+    bottom: get-vw(17, 750);
+    border-bottom-width: get-vw(2, 750);
+    font-size: get-vw(12, 750);
+  }
+  .gogofesta .tips__stage__card .back {
+    transform: rotateY(180deg);
+  }
+  .gogofesta .tips__stage__card .back .back__inner {
+    border-radius: get-vw(20, 750);
+    border-width: get-vw(6, 750);
+    padding: get-vw(27, 750);
+  }
+  .gogofesta .tips__stage__card .back .label {
+    width: get-vw(48, 750);
+    margin-bottom: get-vw(20, 750);
+  }
+  .gogofesta .tips__stage__card .back .title {
+    font-size: get-vw(16, 750);
+    line-height: 1.4;
+  }
+  .gogofesta .tips__stage__card .back .text {
+    margin-top: get-vw(20, 750);
+    font-size: get-vw(12, 750);
+    line-height: 1.4;
+  }
+  .gogofesta .tips__stage__card .back .img {
+    margin-top: get-vw(15, 750);
+  }
+  .gogofesta .tips__stage__card .back .note {
+    margin-top: get-vw(15, 750);
+    font-size: get-vw(11, 750);
+    line-height: 1.4545454545;
+  }
+  .gogofesta .tips__stage__card .card__close__btn {
+    width: get-vw(58, 750);
+  }
+  .gogofesta .tips__stage__card.--1 .back .img {
+    width: get-vw(144, 750);
+  }
+  .gogofesta .tips__stage__card.--2 .back .img {
+    width: get-vw(170, 750);
+  }
+  .gogofesta .tips__stage__card.--3 .back .img {
+    width: get-vw(236, 750);
+  }
+  .gogofesta .tips__stage__card.--4 .back .img {
+    width: get-vw(144, 750);
+  }
+  .gogofesta .tips__stage__card.--5 .back .img {
+    width: get-vw(112, 750);
+  }
+  .gogofesta .second__stage .tips__stage__card.--1 .back .img {
+    width: get-vw(236, 750);
+  }
+  .gogofesta .second__stage .tips__stage__card.--2 .back .img {
+    width: get-vw(151, 750);
+  }
+  .gogofesta .second__stage .tips__stage__card.--3 .back .img {
+    width: get-vw(230, 750);
+  }
+  .gogofesta .second__stage .tips__stage__card.--4 .title-mb {
+    font-size: get-vw(12, 750);
+    letter-spacing: 0.02em;
+  }
+  .gogofesta .second__stage .tips__stage__card.--4 .back .img {
+    width: get-vw(80, 750);
+  }
+  .gogofesta .second__stage .tips__stage__card.--4 .text {
+    margin-top: get-vw(10, 750);
+    line-height: 1.4;
+  }
+  .gogofesta .second__stage .tips__stage__card.--4 .explain {
+    font-size: get-vw(10, 750);
+    text-align: center;
+  }
+  .gogofesta .second__stage .tips__stage__card.--5 .img {
+    margin-top: get-vw(6, 750);
+  }
+  .gogofesta .second__stage .tips__stage__card.--5 .text {
+    margin-top: get-vw(10, 750);
+  }
+  .gogofesta .second__stage .title-h5 {
+    margin-top: get-vw(15, 750);
+    font-size: get-vw(12, 750);
+    color: #e60012;
+  }
+  .gogofesta .second__stage .title-sub {
+    margin-top: get-vw(10, 750);
+    font-size: get-vw(12, 750);
+    font-weight: 900;
+  }
+  .gogofesta .second__stage .box {
+    display: flex;
+    justify-content: space-between;
+  }
+  .gogofesta .second__stage .box .text {
+    margin-top: min(0.946969697vw, 10px);
+    font-size: get-vw(11, 750);
+  }
+  .gogofesta .second__stage .box.--1 {
+    align-items: flex-start;
+  }
+  .gogofesta .second__stage .box.--1 .text {
+    width: get-vw(169, 750);
+  }
+  .gogofesta .second__stage .box.--1 .img {
+    width: get-vw(60, 750);
+  }
+  .gogofesta .second__stage .box.--2 .text {
+    width: get-vw(132, 750);
+  }
+  .gogofesta .second__stage .box.--2 .img {
+    width: get-vw(90, 750);
+  }
+  .gogofesta .second__stage .notice {
+    margin-top: min(3.4090909091vw, 36px);
+    font-size: get-vw(12, 750);
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .gogofesta .tips .container {
+    padding-top: min(9.4696969697vw, 100px);
+    padding-bottom: min(11.3636363636vw, 120px);
+  }
+  .gogofesta .tips__title {
+    font-size: min(3.7878787879vw, 40px);
+  }
+  .gogofesta .tips__contents {
+    margin-top: min(5.6818181818vw, 60px);
+    margin-bottom: min(9.4696969697vw, 100px);
+  }
+  .gogofesta .tips__tabs {
+    -moz-column-gap: min(1.1363636364vw, 12px);
+         column-gap: min(1.1363636364vw, 12px);
+  }
+  .gogofesta .tips__tabs__item {
+    width: min(17.9924242424vw, 190px);
+    height: min(9.4696969697vw, 100px);
+    border-radius: min(4.7348484848vw, 50px);
+  }
+  .gogofesta .tips__tabs__item::before {
+    width: min(1.7992424242vw, 19px);
+    height: min(1.5151515152vw, 16px);
+  }
+  .gogofesta .tips__tabs__item .label {
+    width: min(9.8484848485vw, 104px);
+    top: max(-1.9886363636vw, -21px);
+    left: min(4.1666666667vw, 44px);
+  }
+  .gogofesta .tips__tabs__item.--1 .text {
+    width: min(7.9545454545vw, 84px);
+  }
+  .gogofesta .tips__tabs__item.--2 .text {
+    width: min(9.1856060606vw, 97px);
+  }
+  .gogofesta .tips__tabs__item.--3 .text {
+    width: min(8.7121212121vw, 92px);
+  }
+  .gogofesta .tips__tabs__item.--4 .text {
+    width: min(8.7121212121vw, 92px);
+  }
+  .gogofesta .tips__tabs__item.--5 .text {
+    width: min(10.8901515152vw, 115px);
+  }
+  .gogofesta .tips__panels {
+    margin-top: min(3.3143939394vw, 35px);
+  }
+  .gogofesta .tips__stage__header {
+    row-gap: min(0.4734848485vw, 5px);
+  }
+  .gogofesta .tips__stage__header .title {
+    width: min(17.2348484848vw, 182px);
+  }
+  .gogofesta .tips__stage__header .term {
+    font-size: min(1.7045454545vw, 18px);
+  }
+  .gogofesta .tips__stage__header .num {
+    font-size: min(2.0833333333vw, 22px);
+  }
+  .gogofesta .tips__stage__body {
+    -moz-column-gap: min(2.2727272727vw, 24px);
+         column-gap: min(2.2727272727vw, 24px);
+    row-gap: min(2.2727272727vw, 24px);
+    margin-top: min(2.8409090909vw, 30px);
+  }
+  .gogofesta .tips__stage__card {
+    width: min(24.2424242424vw, 256px);
+    height: min(36.9318181818vw, 390px);
+    border-radius: min(2.4621212121vw, 26px);
+    box-shadow: 0 0 min(1.8939393939vw, 20px) rgba(0, 0, 0, 0.3);
+  }
+  .gogofesta .tips__stage__card.open {
+    width: min(41.6666666667vw, 440px);
+    height: min(63.446969697vw, 670px);
+    border-radius: min(3.7878787879vw, 40px);
+  }
+  .gogofesta .tips__stage__card.open .front {
+    border-radius: min(3.7878787879vw, 40px);
+  }
+  .gogofesta .tips__stage__card.open .back .back__inner {
+    border-radius: min(3.7878787879vw, 40px);
+  }
+  .gogofesta .tips__stage__card .front {
+    border-radius: min(2.4621212121vw, 26px);
+    transform: rotateY(0deg) translateZ(min(0.009469697vw, 0.1px));
+  }
+  .gogofesta .tips__stage__card .front .label {
+    top: min(4.1666666667vw, 44px);
+    width: min(5.6818181818vw, 60px);
+  }
+  .gogofesta .tips__stage__card .front .title {
+    padding-left: min(2.4621212121vw, 26px);
+    padding-right: min(2.4621212121vw, 26px);
+    font-size: min(1.7045454545vw, 18px);
+    line-height: 1.6;
+  }
+  .gogofesta .tips__stage__card .front .text {
+    right: min(2.8409090909vw, 30px);
+    bottom: min(2.2727272727vw, 24px);
+    border-bottom-width: min(0.1893939394vw, 2px);
+    font-size: min(1.3257575758vw, 14px);
+  }
+  .gogofesta .tips__stage__card .back {
+    transform: rotateY(180deg);
+  }
+  .gogofesta .tips__stage__card .back .back__inner {
+    border-radius: min(2.4621212121vw, 26px);
+    border-width: min(0.946969697vw, 10px);
+    padding: min(3.2196969697vw, 34px);
+  }
+  .gogofesta .tips__stage__card .back .label {
+    width: min(5.8712121212vw, 62px);
+    margin-bottom: min(2.8409090909vw, 30px);
+  }
+  .gogofesta .tips__stage__card .back .title {
+    font-size: min(1.7045454545vw, 18px);
+    line-height: 1.6;
+  }
+  .gogofesta .tips__stage__card .back .text {
+    margin-top: min(1.7045454545vw, 18px);
+    font-size: min(1.5151515152vw, 16px);
+    line-height: 1.4;
+  }
+  .gogofesta .tips__stage__card .back .img {
+    margin-top: min(1.7045454545vw, 18px);
+  }
+  .gogofesta .tips__stage__card .back .note {
+    margin-top: min(1.7045454545vw, 18px);
+    font-size: min(1.1363636364vw, 12px);
+    line-height: 1.5;
+  }
+  .gogofesta .first__stage .tips__stage__card.--1 .back .img {
+    width: min(22.6325757576vw, 239px);
+  }
+  .gogofesta .first__stage .tips__stage__card.--2 .back .img {
+    width: min(29.8295454545vw, 315px);
+  }
+  .gogofesta .first__stage .tips__stage__card.--3 .back .img {
+    width: min(32.5757575758vw, 344px);
+  }
+  .gogofesta .first__stage .tips__stage__card.--4 .back .img {
+    width: min(24.053030303vw, 254px);
+  }
+  .gogofesta .first__stage .tips__stage__card.--5 .back .img {
+    width: min(20.8333333333vw, 220px);
+  }
+  .gogofesta .second__stage .tips__stage__header .title {
+    width: min(18.6553030303vw, 197px);
+  }
+  .gogofesta .second__stage .tips__stage__card .text {
+    letter-spacing: 0.1em;
+  }
+  .gogofesta .second__stage .tips__stage__card.--1 .back .img {
+    width: min(29.8295454545vw, 315px);
+    margin-top: min(4.7348484848vw, 50px);
+  }
+  .gogofesta .second__stage .tips__stage__card.--2 .back .img {
+    width: min(27.3674242424vw, 289px);
+  }
+  .gogofesta .second__stage .tips__stage__card.--3 .back .img {
+    width: min(32.5757575758vw, 344px);
+  }
+  .gogofesta .second__stage .tips__stage__card.--4 .back .img {
+    width: min(9.0909090909vw, 96px);
+  }
+  .gogofesta .second__stage .tips__stage__card.--4 .explain {
+    margin-top: min(0.4734848485vw, 5px);
+    font-size: min(1.1363636364vw, 12px);
+    text-align: center;
+  }
+  .gogofesta .second__stage .title-h5 {
+    margin-top: min(1.8939393939vw, 20px);
+    font-size: min(1.5151515152vw, 16px);
+    color: #e60012;
+  }
+  .gogofesta .second__stage .title-sub {
+    margin-top: min(2.6515151515vw, 28px);
+    font-size: min(1.5151515152vw, 16px);
+    font-weight: 900;
+  }
+  .gogofesta .second__stage .box {
+    display: flex;
+    justify-content: space-between;
+  }
+  .gogofesta .second__stage .box .text {
+    margin-top: min(0.4734848485vw, 5px);
+    font-size: min(1.3257575758vw, 14px);
+  }
+  .gogofesta .second__stage .box.--1 {
+    align-items: flex-end;
+  }
+  .gogofesta .second__stage .box.--1 .text {
+    width: min(23.2954545455vw, 246px);
+    letter-spacing: 0.05em;
+  }
+  .gogofesta .second__stage .box.--1 .img {
+    width: min(7.4810606061vw, 79px);
+  }
+  .gogofesta .second__stage .box.--2 .text {
+    width: min(19.7916666667vw, 209px);
+  }
+  .gogofesta .second__stage .box.--2 .img {
+    width: min(11.4583333333vw, 121px);
+  }
+  .gogofesta .second__stage .notice {
+    margin-top: min(3.4090909091vw, 36px);
+    font-size: min(1.3257575758vw, 14px);
+    text-align: center;
+  }
+}
+.tips__stage__card {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.front {
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="582" height="52" viewBox="0 0 582 52">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="パス_65982" data-name="パス 65982" d="M104.432,0A8.169,8.169,0,0,0,96,7.879V44.121A8.169,8.169,0,0,0,104.432,52H653.485a8.651,8.651,0,0,0,6.706-3.1l16.083-19.711a7.487,7.487,0,0,0-.4-10.007l-15.7-16.53A8.7,8.7,0,0,0,653.869,0Z" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" y1="0.329" x2="0.977" y2="0.396" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff716c"/>
+      <stop offset="1" stop-color="#ff9e58"/>
+    </linearGradient>
+  </defs>
+  <g id="period_bar2_dt" transform="translate(-96)" clip-path="url(#clip-path)">
+    <rect id="長方形_15061" data-name="長方形 15061" width="582" height="52" rx="8" transform="translate(96 0)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

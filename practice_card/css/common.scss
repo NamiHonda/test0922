@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+// @use "src-scss/asset" as origin;
+
+// -------------------------------------------------------------
+// project main css
+// -------------------------------------------------------------
+
+// import library setting + mixin + function
+@use "./asset";
+
+// // output common classes + reset
+// // @use "./libs/output";
+
+// // font link
+// @use "../font/fonts";
+
+// -------------------------------------------------------------
+// project 設定
+// -------------------------------------------------------------
+
+// override
+#wrapper {
+  overflow: inherit;
+}
+
+.gogofesta {
+  // @include asset.box-sizing-all;
+
+  background-color: asset.$color-fff;
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    Meiryo, sans-serif;
+  letter-spacing: asset.ls(50);
+  font-weight: 500;
+
+  // iPadで文字サイズが変わる為
+  text-size-adjust: none;
+
+  .container {
+    position: relative;
+  }
+
+  button {
+    @include asset.reset-button;
+  }
+
+  em {
+    font-style: normal;
+  }
+}
+
+// -------------------------------------------------------------
+// mobile
+@include asset.mobile(".gogofesta") {
+  // fixed header height
+  padding-top: 46px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .only--desktop {
+    display: none !important;
+  }
+}
+
+// -------------------------------------------------------------
+// desktop
+@include asset.desktop(".gogofesta") {
+  // fixed header height
+  padding-top: 89px;
+
+  .only--mobile {
+    display: none !important;
+  }
+
+  .container {
+    width: asset.desktop-min(1100);
+    padding-right: asset.desktop-min(50);
+    padding-left: asset.desktop-min(50);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

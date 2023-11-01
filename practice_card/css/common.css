@@ -1,0 +1,60 @@
+#wrapper {
+  overflow: inherit;
+}
+
+.gogofesta {
+  background-color: #fff;
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+.gogofesta .container {
+  position: relative;
+}
+.gogofesta button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.gogofesta em {
+  font-style: normal;
+}
+
+@media only screen and (max-width: 767px) {
+  .gogofesta {
+    padding-top: 46px;
+  }
+  .gogofesta img {
+    width: 100%;
+    height: auto;
+  }
+  .gogofesta .only--desktop {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .gogofesta {
+    padding-top: 89px;
+  }
+  .gogofesta .only--mobile {
+    display: none !important;
+  }
+  .gogofesta .container {
+    width: min(104.1666666667vw, 1100px);
+    padding-right: min(4.7348484848vw, 50px);
+    padding-left: min(4.7348484848vw, 50px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}/*# sourceMappingURL=common.css.map */

@@ -1,0 +1,6 @@
+@use "./asset";
+
+.deliciousness {
+  padding-top: asset.desktop-min(220);
+  background: url(../img/bg_lightgreen.webp) 0 0 repeat;
+}

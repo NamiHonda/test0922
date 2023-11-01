@@ -114,3 +114,22 @@ $tablet-width: 980 !default; // タブレット max width
     }
   }
 }
+
+// buttonタグのstyleをresetします
+// ex) @include asset.reset-button();
+@mixin reset-button {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  user-select: none;
+}
+
+@function lh($line-spacing: 1, $font-size: 1) {
+  // DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+  // @see https://sass-lang.com/documentation/breaking-changes/slash-div
+  //@return $line-spacing / $font-size;
+  @return math.div($line-spacing, $font-size);
+}

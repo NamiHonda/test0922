@@ -3,42 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="css/style.css">
     <title>practice_Lotte</title>
 </head>
 <body>
-	<!-- kv -->
-	<section id="kv" class="kv">
-		<div class="kv__obj1 greenghana__obj --left"><img src="/img/kv_obj_l.webp" alt="" width="390" height="952"></div>
-		<div class="kv__obj2 greenghana__obj --right"><img src="/img/kv_obj_r.webp" alt="" width="410" height="952"></div>
+	<div class="whole">
+		<!-- kv -->
+		<section id="kv" class="kv">
+			<div class="kv__obj1 greenghana__obj --left"><img src="img/kv_obj_l.webp" alt="" width="390" height="952"></div>
+			<div class="kv__obj2 greenghana__obj --right"><img src="img/kv_obj_r.webp" alt="" width="410" height="952"></div>
 
-		<div class="container">
-			<div class="kv__img">
-				<picture>
-					<source srcset="/img/kv_img_dt.webp" media="(min-width: 768px)">
-					<img src="/img/kv_img_mb.webp" alt="" width="375" height="812">
-				</picture>
+			<div class="container">
+				<div class="kv__img">
+					<picture>
+						<source srcset="img/kv_img_dt.webp" media="(min-width: 768px)">
+						<img src="img/kv_img_mb.webp" alt="">
+					</picture>
+				</div>
+
+				<p class="kv__copy1"><img src="img/kv_copy1.webp" alt="はじめまして、緑のガーナです。" width="368" height="127"></p>
+
+				<div class="kv__lnav">
+					<button class="kv__lnav__btn js-smoothScroll" type="button" data-target-id="#deliciousness"><img src="img/kv_btn1.webp" alt="3つのおいしさ" width="200" height="70"></button>
+					<button class="kv__lnav__btn js-smoothScroll" type="button" data-target-id="#movie"><img src="img/kv_btn2.webp" alt="新CMはこちら" width="200" height="70"></button>
+				</div>
+
+				<p class="kv__copy2"><img src="img/kv_copy2.webp" alt="カラダにも、地球にも、おいしい。" width="370" height="57"></p>
+
+				<h1 class="kv__title"><img src="img/logo_greenghana.svg" alt="Green Ghana" width="330" height="144"></h1>
+
+				<div class="kv__pkg"><img src="img/kv_pkg.webp" alt="Green Ghana パッケージ" width="395" height="217"></div>
+
+				<div class="kv__scroll">
+					<span class="kv__scroll__text"><img src="img/kv_scroll_text.svg" alt="Scroll" width="12" height="48"></span>
+					<span class="kv__scroll__arw"><img class="kv__scroll__arw__icon" src="img/kv_scroll_arw.svg" alt="" width="8" height="56"></span>
+				</div>
 			</div>
-
-			<p class="kv__copy1"><img src="/img/kv_copy1.webp" alt="はじめまして、緑のガーナです。" width="368" height="127"></p>
-
-			<div class="kv__lnav">
-				<button class="kv__lnav__btn js-smoothScroll" type="button" data-target-id="#deliciousness"><img src="/img/kv_btn1.webp" alt="3つのおいしさ" width="200" height="70"></button>
-				<button class="kv__lnav__btn js-smoothScroll" type="button" data-target-id="#movie"><img src="/img/kv_btn2.webp" alt="新CMはこちら" width="200" height="70"></button>
+		</section>
+		<!-- kv -->
+		<!-- concept -->
+		<section id="concept" class="concept js-inview">
+			<div class="concept__obj1 greenghana__obj --left"><img src="img/concept_obj_l.webp" alt="" width="115" height="514"></div>
+			<div class="concept__obj2 greenghana__obj --right"><img src="img/concept_obj_r.webp" alt="" width="104" height="207"></div>
+	
+			<div class="container">
+				<h2 class="concept__title js-inview"><img src="img/concept_title.svg" alt="はじめまして、緑のガーナです。" width="345" height="100"></h2>
+				<p class="concept__lead js-inview">ガーナのおいしさはそのまま、<br>食物繊維もたっぷり。<br>環境に優しいパッケージで<br>カラダにも、地球にも、おいしい、<br>“緑”のガーナが生まれました。</p>
+				<h1 class="concept__logo js-inview"><img src="img/logo_greenghana.svg" alt="Green Ghana" width="300" height="131"></h1>
+				<div class="concept__item">
+					<div class="concept__item__pkg concept__item1__pkg js-inview"><img src="img/concept_item1_pkg.webp" alt="Green Ghana オーツミルク" width="421" height="440"></div>
+					<div class="concept__item__text concept__item1__text js-inview">
+						<picture>
+							<source srcset="img/concept_item1_text_dt.svg" media="(min-width: 768px)">
+							<img src="img/concept_item1_text_mb.svg" alt="香ばしいコクのあるおいしさ やさしい甘みのオーツミルク" width="137" height="116">
+						</picture>
+					</div>
+					<a class="concept__item__link concept__item1__link js-inview" href="/products/catalogue/choco/01/detail145.html">
+						<span>商品詳細はこちら</span>
+						<span class="arw"><img loading="lazy" src="img/icon_arw_r_br.svg" alt="" width="5" height="9"></span>
+					</a>
+				</div>
+				<div class="concept__item">
+					<div class="concept__item__pkg concept__item2__pkg js-inview"><img src="img/concept_item2_pkg.webp" alt="Green Ghana 糖質30%オフ" width="421" height="440"></div>
+					<div class="concept__item__text concept__item2__text js-inview">
+						<picture>
+							<source srcset="img/concept_item2_text_dt.svg" media="(min-width: 768px)">
+							<img src="img/concept_item2_text_mb.svg" alt="いつものガーナと変わらないおいしさ おいしさそのまま糖質30%オフ ※ガーナミルク比" width="143" height="160">
+						</picture>
+					</div>
+					<a class="concept__item__link concept__item2__link js-inview" href="/products/catalogue/choco/01/detail146.html">
+						<span>商品詳細はこちら</span>
+						<span class="arw"><img loading="lazy" src="img/icon_arw_r_br.svg" alt="" width="5" height="9"></span>
+					</a>
+				</div>
+	
+				<div class="concept__obj --choco1 js-inview"><img src="img/concept_choco1.webp" alt="" width="91" height="99"></div>
+				<div class="concept__obj --choco2 js-inview"><img src="img/concept_choco2.webp" alt="" width="127" height="136"></div>
+				<div class="concept__obj --choco3 js-inview"><img src="img/concept_choco3.webp" alt="" width="78" height="90"></div>
+				<div class="concept__obj --choco4 js-inview"><img src="img/concept_choco4.webp" alt="" width="86" height="91"></div>
 			</div>
-
-			<p class="kv__copy2"><img src="/img/kv_copy2.webp" alt="カラダにも、地球にも、おいしい。" width="370" height="57"></p>
-
-			<h1 class="kv__title"><img src="/img/logo_greenghana.svg" alt="Green Ghana" width="330" height="144"></h1>
-
-			<div class="kv__pkg"><img src="/img/kv_pkg.webp" alt="Green Ghana パッケージ" width="395" height="217"></div>
-
-			<div class="kv__scroll">
-				<span class="kv__scroll__text"><img src="/img/kv_scroll_text.svg" alt="Scroll" width="12" height="48"></span>
-				<span class="kv__scroll__arw"><img class="kv__scroll__arw__icon" src="/img/kv_scroll_arw.svg" alt="" width="8" height="56"></span>
+		</section>
+		<!-- concept -->
+	
+		<!-- deliciousness -->
+		<section id="deliciousness" class="deliciousness js-inview">
+			<div class="deliciousness__obj1 greenghana__obj --right"><img loading="lazy" src="img/deliciousness_obj_r.webp" alt="" width="171" height="224"></div>
+			<div class="deliciousness__obj2 greenghana__obj --left only--desktop"><img loading="lazy" src="img/cmn_obj1_l.webp" alt="" width="120" height="748"></div>
+			<div class="deliciousness__obj3 greenghana__obj --right only--desktop"><img loading="lazy" src="img/cmn_obj2_r.webp" alt="" width="174" height="736"></div>
+	
+			<h2 class="deliciousness__title js-inview"><img loading="lazy" src="img/deliciousness_title.svg" alt="はじめまして、緑のガーナです。" width="319" height="100"></h2>
+	
+			<div class="deliciousness__content js-tab-content">
+				<div class="deliciousness__content__obj --left"><img src="img/deliciousness_obj1.webp" alt="" width="173" height="207"></div>
+				<div class="deliciousness__content__obj --right"><img src="img/deliciousness_obj2.webp" alt="" width="248" height="263"></div>
+	
+				<div class="deliciousness__panels">
+					<div id="deliciousness__panel1" class="deliciousness__panels__item --1 js-tab-content__panel">
+						<p class="copy"><img src="img/deliciousness_item1_copy.svg" alt="おいしい口どけ" width="63" height="145"></p>
+						<div class="img"><img src="img/deliciousness_item1_img.webp" alt="" width="439" height="258"></div>
+						<p class="text">香ばしくてやさしい甘さの<br>オーツミルクと、糖質は控えめなのに、<br>いつもと同じ、とろける口どけ</p>
+					</div>
+	
+					<div id="deliciousness__panel2" class="deliciousness__panels__item --2 js-tab-content__panel">
+						<p class="copy"><img src="img/deliciousness_item2_copy.svg" alt="カラダにもおいしい" width="67" height="174"></p>
+						<div class="img"><img src="img/deliciousness_item2_img.webp" alt="" width="453" height="263"></div>
+						<p class="text">植物性ミルクと糖質オフの２つで新登場。<br>どちらも食物繊維たっぷりで<br>カラダにおいしいチョコレートに<br>仕上げました。</p>
+					</div>
+	
+					<div id="deliciousness__panel3" class="deliciousness__panels__item --3 js-tab-content__panel">
+						<p class="copy"><img src="img/deliciousness_item3_copy.svg" alt="地球にもおいしい" width="70" height="172"></p>
+						<div class="img"><img src="img/deliciousness_item3_img.webp" alt="" width="388" height="224"></div>
+						<p class="text">外箱、個包装ともに、<br>地球環境に配慮したパッケージを<br>採用しています。</p>
+					</div>
+				</div>
+	
+				<div class="deliciousness__tabs">
+					<button class="deliciousness__tabs__item --1 js-tab-content__tab is-active" type="button" data-panel-id="#deliciousness__panel1">
+						<div class="tap"><img src="img/deliciousness_tab_tap.svg" alt="TAP" width="92" height="62"></div>
+						<div class="img"><img src="img/deliciousness_tab1_img.webp" alt="おいしい口どけ" width="134" height="116"></div>
+						<p class="text">おいしい<br>口どけ</p>
+					</button>
+					<button class="deliciousness__tabs__item --2 js-tab-content__tab" type="button" data-panel-id="#deliciousness__panel2">
+						<div class="tap"><img src="img/deliciousness_tab_tap.svg" alt="TAP" width="92" height="62"></div>
+						<div class="img"><img src="img/deliciousness_tab2_img.webp" alt="カラダにもおいしい" width="134" height="116"></div>
+						<p class="text">カラダにも<br>おいしい</p>
+					</button>
+					<button class="deliciousness__tabs__item --3 js-tab-content__tab" type="button" data-panel-id="#deliciousness__panel3">
+						<div class="tap"><img src="img/deliciousness_tab_tap.svg" alt="TAP" width="92" height="62"></div>
+						<div class="img"><img src="img/deliciousness_tab3_img.webp" alt="地球にもおいしい" width="134" height="116"></div>
+						<p class="text">地球にも<br>おいしい</p>
+					</button>
+				</div>
 			</div>
-		</div>
-	</section>
-	<!-- kv -->
+		</section>
+		<!-- deliciousness -->
+
+	
+	</div>
 </body>
 </html>

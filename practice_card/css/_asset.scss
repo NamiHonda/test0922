@@ -1,0 +1,228 @@
+
+
+// setting 依存 function / mixin
+//
+// Compatible in latest Browser
+// Styleguide 2.4.0
+
+@use "sass:math";
+
+
+$mobile-width: 750;
+$desktop-width: 1056;
+
+
+$graceful-usage-threshold: 100 !default;
+$critical-usage-threshold: 100 !default;
+
+// Font
+$font-color: #000 !default;
+$font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
+  sans-serif !default;
+$font-size: 10 !default;
+$line-height: 1.5 !default;
+$default-em: 10px !default;
+
+// Various global styles
+$float: left !default;
+$box-sizing: border-box !default;
+
+// on or off
+$font-smoothing: off !default;
+$bg-color: #fff !default;
+
+// Media Queries
+// mobile width
+$mobile-width: 375 !default; // デザイン幅 375 or 750 or other
+$mobile-max-width: 767 !default; // レスポンシブ mobile max
+
+// desktop width
+$desktop-width: 1200 !default; // コンテンツ部分幅 max width
+
+// tablet width
+$tablet: false !default; // tablet用スタイルが必要な場合はtrueに
+$tablet-width: 980 !default; // タブレット max width
+// VW calc
+// --------------------
+@function mobile-vw($width, $viewport:$mobile-width) {
+  @return get-vw($width, $viewport);
+}
+
+@function desktop-vw($width, $viewport: $desktop-width) {
+  @return get-vw($width, $viewport);
+}
+
+// min(), max(), clamp()
+// --------------------
+// desktop min (最大値指定)
+// ex.
+// width: asset.desktop-min(500);
+// height: asset.desktop-min(300, 1260);
+// font-size: asset.desktop-min(20);
+@function desktop-min($value, $viewport: $desktop-width) {
+  @return min(#{math.div(100, $viewport) * $value}vw, #{$value}px);
+}
+
+// desktop max (最小値指定)
+// ex.
+// width: asset.desktop-max(500);
+// height: asset.desktop-max(300, 1260);
+// font-size: asset.desktop-max(20);
+@function desktop-max($value, $viewport: $desktop-width) {
+  @return max(#{math.div(100, $viewport) * $value}vw, #{$value}px);
+}
+
+
+@mixin mobile($wrapper: null) {
+  @if $wrapper == null {
+    @media only screen and (max-width: #{$mobile-max-width}px) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: #{$mobile-max-width}px) {
+      #{$wrapper} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin desktop($wrapper: null) {
+  @if $wrapper == null {
+    @if $tablet {
+      @media screen and (min-width: #{$tablet-width + 1}px) {
+        @content;
+      }
+    } @else {
+      @media screen and (min-width: #{$mobile-max-width + 1}px) {
+        @content;
+      }
+    }
+  } @else {
+    @if $tablet {
+      @media screen and (min-width: #{$tablet-width + 1}px) {
+        #{$wrapper} {
+          @content;
+        }
+      }
+    } @else {
+      @media screen and (min-width: #{$mobile-max-width + 1}px) {
+        #{$wrapper} {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+// -------------------------------------------------------------
+// colors
+// -------------------------------------------------------------
+
+$color-000: #000;
+$color-004098: #004098;
+$color-0068b7: #0068b7;
+$color-0268b7: #0268b7;
+$color-22ac38: #22ac38;
+$color-2d4761: #2d4761;
+$color-707070: #707070;
+$color-69318e: #69318e;
+$color-e60012: #e60012;
+$color-f4f4f4: #f4f4f4;
+$color-f5f5f5: #f5f5f5;
+$color-f97979: #f97979;
+$color-fbeae9: #fbeae9;
+$color-fca61e: #fca61e;
+$color-ffd6d5: #ffd6d5;
+$color-ffe6e3: #ffe6e3;
+$color-fff: #fff;
+$color-e0e0e0: #e0e0e0;
+$color-888: #888;
+$color-c6c6c6: #c6c6c6;
+
+
+// easing
+//
+// easing用の変数を準備します
+// ex. https://matthewlein.com/tools/ceaser
+//
+// Styleguide 2.5.0
+
+// default（キーワードで準備されていますが、一応変数も作成しておきます）
+// sass-lint:disable variable-name-format
+$linear: cubic-bezier(0, 0, 1, 1);
+$ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+$ease-in: cubic-bezier(0.42, 0, 1, 1);
+$easeIn: $ease-in;
+$ease-out: cubic-bezier(0, 0, 0.58, 1);
+$easeOut: $ease-out;
+$ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+$easeInOut: $ease-in-out;
+
+// Sine（最も弱い）
+$easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+// Quad（弱め。Sineより強く、Cubicより弱い）
+$easeInQuad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$easeOutQuad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeInOutQuad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+// Cubic（Quadより強く、Quartより弱い）
+$easeInCubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+// Quart（Cubicより強く、Quintより弱い）
+$easeInQuart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
+
+// Quint（Quartより強く、Expoより弱い）
+$easeInQuint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+$easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);
+
+// Expo（最も強い）
+$easeInExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+
+// Circ（Expoのような強さを持つが、加速や減速の時間がよりゆるやか。）
+$easeInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$easeOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+// Back（少し行き過ぎてから戻ってくるような動き）
+$easeInBack: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Elastic/Bounce is not supported in CSS
+// sass-lint:enable variable-name-format
+
+@function lh($line-spacing: 1, $font-size: 1) {
+  // DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+  // @see https://sass-lang.com/documentation/breaking-changes/slash-div
+  //@return $line-spacing / $font-size;
+  @return math.div($line-spacing, $font-size);
+}
+
+@function ls($letter-spacing: 0) {
+  @if ($letter-spacing == "inline-block") {
+    @return -0.4em;
+  } @else {
+    @return #{$letter-spacing * 0.001 + "em"};
+  }
+}
+
+@mixin reset-button {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  user-select: none;
+}
