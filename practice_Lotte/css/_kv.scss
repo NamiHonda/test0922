@@ -14,13 +14,13 @@
 .kv__pkg {
   position: absolute;
   z-index: 2;
-  // opacity: 0;
+  opacity: 0;
   will-change: opacity;
 
-  // .--loaded & {
-  //   opacity: 1;
-  //   transition: opacity 800ms asset.$easeOut;
-  // }
+  .--loaded & {
+    opacity: 1;
+    transition: opacity 800ms asset.$easeOut;
+  }
 }
 
 .kv__scroll {
@@ -28,6 +28,30 @@
   z-index: 2;
 }
 
+.kv__copy1 {
+  .--loaded & {
+    transition-delay: 1000ms;
+  }
+}
+
+.kv__copy2,
+.kv__title,
+.kv__pkg {
+  .--loaded & {
+    transition-delay: 1600ms;
+  }
+}
+
+.kv__lnav {
+  z-index: 3;
+  opacity: 0;
+  will-change: opacity;
+
+  .--loaded & {
+    opacity: 1;
+    transition: opacity 640ms asset.$easeOut 2000ms;
+  }
+}
 
 // -------------------------------------------------------------
 // mobile

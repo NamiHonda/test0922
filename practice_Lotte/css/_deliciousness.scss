@@ -1,6 +1,116 @@
 @use "./asset";
 
 .deliciousness {
-  padding-top: asset.desktop-min(220);
+  position: relative;
   background: url(../img/bg_lightgreen.webp) 0 0 repeat;
+  &::after {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+// -------------------------------------------------------------
+// mobile
+@include asset.mobile {
+}
+
+
+// -------------------------------------------------------------
+// desktop
+
+@include asset.desktop {
+  .deliciousness {
+    padding-top: asset.desktop-min(100);
+    padding-bottom: asset.desktop-min(437);
+    &::after {
+      height: asset.desktop-min(116);
+      background-image: url("../img/deliciousness_bg_dt.webp");
+    }
+    .deliciousness__obj1 {
+      width: asset.desktop-min(171);
+    }
+    .deliciousness__obj2 {
+      width: asset.desktop-min(120);
+    }
+    .deliciousness__obj3 {
+      width: asset.desktop-min(174);
+    }
+    .deliciousness__title {
+      margin-left: auto;
+      margin-right: auto;
+      width: asset.desktop-min(318);
+    }
+    .deliciousness__content__obj {
+      position: absolute;
+      &.--left {
+        width: asset.desktop-min(173);
+        top: asset.desktop-max(-57);
+        left: 0;
+      }
+      &.--right {
+        width: asset.desktop-min(213);
+        top: asset.desktop-max(-57);
+        right: 0;
+      }
+    }
+
+    .deliciousness__content {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: asset.desktop-min(70);
+      width: asset.desktop-min(614);
+      height: asset.desktop-min(614);
+      background: url("../img/deliciousness_item_bg.webp") 50% 0
+        no-repeat;
+      background-size: 100% auto;
+    }
+
+    .deliciousness__panels {
+      .deliciousness__panels__item {
+        padding-top: asset.desktop-min(42);
+      }
+
+      .copy {
+        width: asset.desktop-min(63);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .img {
+        width: asset.desktop-min(438);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .text {
+        text-align: center;
+        color: #371606;
+      }
+    }
+
+    .deliciousness__tabs {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: asset.desktop-min(76);
+      width: asset.desktop-min(450);
+      .tap {
+        position: absolute;
+        top: asset.desktop-max(-44);
+      }
+      .img {
+        width: asset.desktop-min(134);
+      }
+      .text {
+        color: #009F3A;
+      }
+    }
+  }
 }
