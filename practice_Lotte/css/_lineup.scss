@@ -1,0 +1,124 @@
+@use "./asset";
+
+// -------------------------------------------------------------
+// project 設定
+// -------------------------------------------------------------
+.lineup {
+  position: relative;
+  background: url("../img/bg_lightgreen.webp") 0 0 repeat;
+  &::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+// -------------------------------------------------------------
+// desktop
+
+@include asset.desktop {
+  .lineup {
+    padding-top: asset.desktop-min(80);
+    padding-bottom: asset.desktop-min(223);
+    &::after {
+      height: asset.desktop-min(116);
+      background-image: url("../img/lineup_bg_dt.webp");
+    }
+    .lineup__title {
+      width: asset.desktop-min(310);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .lineup__obj1 {
+      width: asset.desktop-min(203);
+      top: asset.desktop-max(-146);
+
+    }
+    .lineup__obj2 {
+      width: asset.desktop-min(226);
+      top: asset.desktop-max(-238);
+    }
+    .lineup__list {
+      display: flex;
+      justify-content: center;
+      column-gap: asset.desktop-min(40);
+      margin-top: asset.desktop-min(40);
+    }
+    .lineup__list__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: asset.desktop-min(405);
+      padding-top: asset.desktop-min(40);
+      padding-bottom: asset.desktop-min(40);
+      background-color: #fff;
+      border-radius: asset.desktop-min(41);
+      .arw {
+        font-size: 0;
+      }
+      .name {
+        font-size: asset.desktop-min(20);
+      }
+      .img {
+        width: asset.desktop-min(348);
+      }
+      .link {
+        display: flex;
+        align-items: center;
+        font-size: asset.desktop-min(14);
+        color: #009F39;
+        text-decoration: none;
+        .arw {
+          width: asset.desktop-min(9);
+          margin-left: asset.desktop-min(8);
+        }
+      }
+    }
+    .lineup__btn__wh {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: asset.desktop-min(280);
+      height: asset.desktop-min(45);
+      margin-top: asset.desktop-min(40);
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      color: #009F39;
+      border: 2px solid #009F39;
+      font-size: asset.desktop-min(14);
+      border-radius: asset.desktop-min(23);
+      text-decoration: none;
+      .arw {
+        width: asset.desktop-min(9);
+        margin-left: asset.desktop-min(8);
+        font-size: 0;
+      }
+    }
+    .lineup__btn__gr {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: asset.desktop-min(400);
+      height: asset.desktop-min(76);
+      margin-top: asset.desktop-min(40);
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #009F39;
+      color: #fff;
+      font-size: asset.desktop-min(18);
+      border-radius: asset.desktop-min(71);
+      text-decoration: none;
+      .arw {
+        width: asset.desktop-min(9);
+        margin-left: asset.desktop-min(8);
+        font-size: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@use "./asset";
+
+// -------------------------------------------------------------
+// project 設定
+// -------------------------------------------------------------
+.movie {
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+
+// -------------------------------------------------------------
+// desktop
+
+@include asset.desktop {
+  .movie {
+    padding-bottom:asset.desktop-min(227) ;
+    &::after {
+      height: asset.desktop-min(116);
+      background-image: url("../img/movie_bg_dt.webp");
+    }
+    .movie__obj1 {
+      top: 0;
+      width: asset.desktop-min(173);
+    }
+  
+    .movie__obj2 {
+      top: asset.desktop-max(-221);
+      width: asset.desktop-min(192);
+    }
+  
+    .movie__obj3 {
+      top: asset.desktop-min(317);
+      width: asset.desktop-min(120);
+    }
+  
+    .movie__obj4 {
+      top: asset.desktop-min(161);
+      width: asset.desktop-min(174);
+    }
+  
+    .movie__obj5 {
+      top: asset.desktop-min(1115);
+      width: asset.desktop-min(120);
+    }
+  
+    .movie__obj6 {
+      top: asset.desktop-min(1037);
+      width: asset.desktop-min(174);
+    }
+  
+    .movie__title {
+      width: asset.desktop-min(180);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .movie__list {
+      width: asset.desktop-min(690);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .movie__list__item {
+      margin-top: asset.desktop-min(60);
+      .title {
+        margin-top: asset.desktop-min(21);
+        text-align: center;
+        color: #371606;
+      }
+    }
+  }
+}

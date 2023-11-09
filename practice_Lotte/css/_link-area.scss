@@ -1,0 +1,74 @@
+@use "./asset";
+
+// -------------------------------------------------------------
+// project 設定
+// -------------------------------------------------------------
+.link-area {
+  position: relative;
+  background-color: #fff;
+
+  &::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+
+// -------------------------------------------------------------
+// desktop
+
+@include asset.desktop {
+  .link-area {
+    padding-top: asset.desktop-min(100);
+    .link-area__list {
+      display: flex;
+      column-gap: asset.desktop-min(16);
+      justify-content: center;
+      
+    }
+    .link-area__list__btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      row-gap: asset.desktop-min(16);
+      width: asset.desktop-min(320);
+      height: asset.desktop-min(80);
+      border-radius: asset.desktop-min(10);
+      background-color: #D0181F;
+      color: #fff;
+      text-decoration: none;
+      .arw {
+        width: asset.desktop-min(43);
+        margin-left: asset.desktop-min(15);
+        font-size: 0;
+        transition: transform .3s;
+        &:hover {
+          transform: translateX(asset.desktop-min(5));
+        }
+      }
+    }
+    .link-area__share {
+      margin-top: asset.desktop-min(80);
+    }
+    .link-area__share__text {
+      font-size: asset.desktop-min(14);
+      color: #951D00;
+      text-align: center;
+    }
+    .link-area__share__list {
+      display: flex;
+      justify-content: center;
+      column-gap: asset.desktop-min(14);
+      margin-top: asset.desktop-min(10);
+    }
+    .link-area__share__list__item {
+      width: asset.desktop-min(47);
+    }
+  }
+}

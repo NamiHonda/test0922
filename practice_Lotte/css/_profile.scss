@@ -1,0 +1,73 @@
+@use "./asset";
+
+// -------------------------------------------------------------
+// project 設定
+// -------------------------------------------------------------
+.profile {
+  position: relative;
+  background: url("../img/bg_green.webp") 0 -50% repeat;
+
+  &::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+
+// -------------------------------------------------------------
+// desktop
+
+@include asset.desktop {
+  .profile {
+    padding-top: asset.desktop-min(88);
+    padding-bottom: asset.desktop-min(252);
+    &::after {
+      height: asset.desktop-min(116);
+      background-image: url("../img/profile_bg_dt.webp");
+    }
+    .profile__obj1 {
+      width: asset.desktop-min(167);
+      top: asset.desktop-max(-273);
+    }
+    .profile__obj2 {
+      width: asset.desktop-min(223);
+      top: asset.desktop-max(-273);
+    }
+    .profile__title {
+      width: asset.desktop-min(235);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .profile__content {
+      position: relative;
+      width: asset.desktop-min(936);
+      margin-top: asset.desktop-min(66);
+      margin-left: auto;
+      margin-right: auto;
+      color: #F4FFC4;
+      .thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: asset.desktop-min(400);
+      }
+      .text {
+        padding-left: asset.desktop-min(448);
+        .name {
+          font-size: asset.desktop-min(30);
+        }
+      }
+    }
+    .profile__content__detail {
+      padding-left: asset.desktop-min(448);
+      letter-spacing: -0.05em;
+      font-weight: 300;
+    }
+  }
+}

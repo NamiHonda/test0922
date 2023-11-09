@@ -1,0 +1,159 @@
+@use "./asset";
+
+// -------------------------------------------------------------
+// project 設定
+// -------------------------------------------------------------
+.earth {
+  position: relative;
+  background: url("../img/bg_lightgreen.webp") 0 0 repeat;
+  &::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .earth__item {
+    position: relative;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+  .earth__item__img,
+  .earth__item__text,
+  .earth__item__btn {
+    position: absolute;
+  }
+
+}
+
+
+// -------------------------------------------------------------
+// desktop
+
+@include asset.desktop {
+  .earth {
+    position: relative;
+    padding-top: asset.desktop-min(80);
+    padding-bottom: asset.desktop-min(215);
+    &::after {
+      height: asset.desktop-min(116);
+      background-image: url("../img/earth_bg_dt.png");
+    }
+    .container {
+      position: relative;
+      width: asset.desktop-min(1056);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .earth__obj1 {
+      top: asset.desktop-min(97);
+      width: asset.desktop-min(120);
+    }
+    .earth__obj2 {
+      top: asset.desktop-min(243);
+      width: asset.desktop-min(174);
+    }
+    .earth__obj3 {
+      top: asset.desktop-min(918);
+      width: asset.desktop-min(166);
+    }
+    .earth__obj4 {
+      width: asset.desktop-min(144);
+      bottom: asset.desktop-min(448);
+    }
+    .earth__leaf {
+      position: absolute;
+    }
+    .earth__leaf1 {
+      width: asset.desktop-min(283);
+      top: asset.desktop-min(50);
+      left: 0;
+    }
+    .earth__leaf2 {
+      width: asset.desktop-min(249);
+      top: 0;
+      right: asset.desktop-min(79);
+    }
+    .earth__leaf3 {
+      width: asset.desktop-min(91);
+      top: asset.desktop-min(108);
+      right: 0;
+    }
+    .earth__title {
+      width: asset.desktop-min(277);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .earth__item {
+      width: asset.desktop-min(669);
+      height: asset.desktop-min(860);
+      margin-top: asset.desktop-min(18);
+      margin-left: auto;
+      margin-right: auto;
+      background-image: url("../img/earth_item_bg_dt.webp");
+    }
+    .earth__item__img {
+      position: absolute;
+      width: asset.desktop-min(346);
+      top: asset.desktop-min(232);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .earth__item__text {
+      position: absolute;
+      &.--1 {
+        top: asset.desktop-min(106);
+        left: asset.desktop-min(184);
+        width: asset.desktop-min(126);
+      }
+  
+      &.--2 {
+        top: asset.desktop-min(106);
+        right: asset.desktop-min(162);
+        width: asset.desktop-min(142);
+      }
+  
+      &.--3 {
+        top: asset.desktop-min(454);
+        left: asset.desktop-min(164);
+        width: asset.desktop-min(138);
+      }
+  
+      &.--4 {
+        top: asset.desktop-min(551);
+        right: asset.desktop-min(142);
+        width: asset.desktop-min(149);
+      }
+    }
+    .earth__item__btn {
+      width: asset.desktop-min(58);
+  
+      &.--1 {
+        top: asset.desktop-min(214);
+        left: asset.desktop-min(169);
+      }
+  
+      &.--2 {
+        top: asset.desktop-min(177);
+        right: asset.desktop-min(161);
+      }
+  
+      &.--3 {
+        top: asset.desktop-min(680);
+        left: asset.desktop-min(288);
+      }
+  
+      &.--4 {
+        top: asset.desktop-min(561);
+        right: asset.desktop-min(143);
+      }
+    }
+    .earth__more__img {
+      width: asset.desktop-min(480);
+    }
+  }
+}

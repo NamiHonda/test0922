@@ -47,6 +47,15 @@
       margin-left: auto;
       margin-right: auto;
       width: asset.desktop-min(345);
+      opacity: 0;
+      transform: translate(0, asset.desktop-min(30));
+      will-change: opacity, transform;
+  
+      &.is-inview {
+        transition: opacity 800ms asset.$linear, transform 1600ms asset.$easeOutQuint;
+        opacity: 1;
+        transform: translate(0, 0);
+      }
     }
 
     .concept__lead {
@@ -54,6 +63,22 @@
       text-align: center;
       font-size: asset.desktop-min(18);
       line-height: asset.lh(44, 18);
+    }
+
+
+    .concept__item__pkg,
+    .concept__item__text,
+    .concept__item__link {
+      opacity: 0;
+      transform: translate(0, asset.desktop-min(30));
+      // transform: translate(asset.desktop-min(80),0);
+      will-change: opacity, transform;
+
+      &.is-inview {
+        transition: opacity 800ms asset.$linear 800ms, transform 1600ms asset.$easeOutQuint 800ms;
+        opacity: 1;
+        transform: translate(0, 0);
+      }
     }
 
     .concept__item__pkg {
